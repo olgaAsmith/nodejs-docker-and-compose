@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm i
+RUN npm ci
 
 COPY . .
 
@@ -19,7 +19,7 @@ WORKDIR /app
 
 COPY --from=builder /app/package*.json ./
 
-RUN npm i --omit=dev
+RUN npm ci --omit=dev
 
 COPY --from=builder /app/dist ./dist
 
