@@ -1,0 +1,44 @@
+services:
+
+  backend:
+    container_name: backend-kupi
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env
+    ports:
+      - '4000:3000'
+    depends_on:
+      - db
+    networks:
+      - kp-network
+
+  frontend:
+    container_name: frontend-kupi
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '8081:80'
+    depends_on:
+      - backend
+    networks:
+      - kp-network
+
+  db:
+    container_name: db-kupi
+    image: postgres:12
+    env_file:
+      - ./backend/.env
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    networks:
+      - kp-network
+
+volumes:
+  pg-data:
+
+networks:
+  kp-network:
+    driver: bridge
