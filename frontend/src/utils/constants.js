@@ -1,4 +1,4 @@
-export const URL = 'http://localhost:4000';
+export const URL = 'https://api.nodeok2.nomorepartiessite.ru';
 
 export const EMAIL_REGULAR =
   /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/;
