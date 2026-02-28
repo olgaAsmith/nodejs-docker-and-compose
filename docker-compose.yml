@@ -10,9 +10,10 @@ services:
     ports:
       - '4000:3000'
     depends_on:
-      - db
+      - database
     networks:
       - kp-network
+    restart: unless-stopped
 
   frontend:
     container_name: frontend-kupi
@@ -25,8 +26,9 @@ services:
       - backend
     networks:
       - kp-network
+    restart: unless-stopped
 
-  db:
+  database:
     container_name: db-kupi
     image: postgres:12
     env_file:
@@ -35,6 +37,7 @@ services:
       - pg-data:/var/lib/postgresql/data
     networks:
       - kp-network
+    restart: unless-stopped
 
 volumes:
   pg-data:
