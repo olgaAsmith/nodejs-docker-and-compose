@@ -1,5 +1,7 @@
 IP адрес 93.77.182.18
+
 Frontend https://nodeok2.nomorepartiessite.ru/
+
 Backend https://api.nodeok2.nomorepartiessite.ru/
 
 # Докеризация приложения
